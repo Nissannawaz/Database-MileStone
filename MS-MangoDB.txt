@@ -1,0 +1,517 @@
+Please enter a MongoDB connection string (Default: mongodb://localhost/):
+
+Current Mongosh Log ID: 65641fa2d370c62bce67bc39
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.0
+Using MongoDB:          7.0.3
+Using Mongosh:          2.1.0
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-11-22T16:36:17.961+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs;
+Student_Table  152.00 KiB
+admin           40.00 KiB
+config          72.00 KiB
+local           72.00 KiB
+test> create database Book
+Uncaught:
+SyntaxError: Missing semicolon. (1:6)
+
+> 1 | create database Book
+    |       ^
+  2 |
+
+test> create databases Book
+Uncaught:
+SyntaxError: Missing semicolon. (1:6)
+
+> 1 | create databases Book
+    |       ^
+  2 |
+
+test> create databases Book;
+Uncaught:
+SyntaxError: Missing semicolon. (1:6)
+
+> 1 | create databases Book;
+    |       ^
+  2 |
+
+test> use Books;
+switched to db Books
+Books> db.createCollection("Book")
+{ ok: 1 }
+Books> db.Book.insert({book_id:101,Btittle:"The
+Uncaught:
+SyntaxError: Unterminated string constant. (1:36)
+
+> 1 | db.Book.insert({book_id:101,Btittle:"The
+    |                                     ^
+  2 |
+
+Books> db.Book.find();
+[eprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+  {
+    _id: ObjectId('65642788d370c62bce67bc3a'),
+    book_id: 101,'0': ObjectId('65642788d370c62bce67bc3a') }
+    Btittle: 'The White Book',
+    author: [ 'Jack' ],
+    price: 1500
+  }
+]
+Books> db.Book.insert({book_id:102,Btittle:"Han Kang",author:["Jack"],price:1500});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('656427dcd370c62bce67bc3b') }
+}
+Books> db.Book.insert({book_id:103,Btittle:"The Hindu",author:["Jack"],price:1400});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('6564282ad370c62bce67bc3c') }
+}
+Books> db.Book.insert({book_id:104,Btittle:"Darkness",author:["Alen"],price:1200});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('6564285bd370c62bce67bc3d') }
+}
+Books> db.Book.insert({book_id:105,Btittle:"Making of India",author:["Alen"],price:1100});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('6564287cd370c62bce67bc3e') }
+}
+Books> db.Book.insert({book_id:106,Btittle:"We are Displaced",author:["Bob"],price:1120});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('656428b6d370c62bce67bc3f') }
+}
+Books> db.Book.insert({book_id:107,Btittle:"Saffron Swords",author:["Bob"],price:1120});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('656428d2d370c62bce67bc40') }
+}
+Books> db.Book.insert({book_id:108,Btittle:"Mind Map",author:["George"],price:1500});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('6564293fd370c62bce67bc41') }
+}
+Books> db.Book.insert({book_id:109,Btittle:"Pyree",author:["Mathwes"],price:2000});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('65642964d370c62bce67bc42') }
+}
+Books> db.Book.insert({book_id:110,Btittle:"Women And Men",author:["James"],price:6000});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('65642995d370c62bce67bc43') }
+}
+Books> db.Book.find();
+[
+  {
+    _id: ObjectId('65642788d370c62bce67bc3a'),
+    book_id: 101,
+    Btittle: 'The White Book',
+    author: [ 'Jack' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('656427dcd370c62bce67bc3b'),
+    book_id: 102,
+    Btittle: 'Han Kang',
+    author: [ 'Jack' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('6564282ad370c62bce67bc3c'),
+    book_id: 103,
+    Btittle: 'The Hindu',
+    author: [ 'Jack' ],
+    price: 1400
+  },
+  {
+    _id: ObjectId('6564285bd370c62bce67bc3d'),
+    book_id: 104,
+    Btittle: 'Darkness',
+    author: [ 'Alen' ],
+    price: 1200
+  },
+  {
+    _id: ObjectId('6564287cd370c62bce67bc3e'),
+    book_id: 105,
+    Btittle: 'Making of India',
+    author: [ 'Alen' ],
+    price: 1100
+  },
+  {
+    _id: ObjectId('656428b6d370c62bce67bc3f'),
+    book_id: 106,
+    Btittle: 'We are Displaced',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    _id: ObjectId('656428d2d370c62bce67bc40'),
+    book_id: 107,
+    Btittle: 'Saffron Swords',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    _id: ObjectId('6564293fd370c62bce67bc41'),
+    book_id: 108,
+    Btittle: 'Mind Map',
+    author: [ 'George' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('65642964d370c62bce67bc42'),
+    book_id: 109,
+    Btittle: 'Pyree',
+    author: [ 'Mathwes' ],
+    price: 2000
+  },
+  {
+    _id: ObjectId('65642995d370c62bce67bc43'),
+    book_id: 110,
+    Btittle: 'Women And Men',
+    author: [ 'James' ],
+    price: 6000
+  }
+]
+Books> db.Book.find({},{_id:0,book_id:1,Btittle:1,authors:1,price:1});
+[
+  { book_id: 101, Btittle: 'The White Book', price: 1500 },
+  { book_id: 102, Btittle: 'Han Kang', price: 1500 },
+  { book_id: 103, Btittle: 'The Hindu', price: 1400 },
+  { book_id: 104, Btittle: 'Darkness', price: 1200 },
+  { book_id: 105, Btittle: 'Making of India', price: 1100 },
+  { book_id: 106, Btittle: 'We are Displaced', price: 1120 },
+  { book_id: 107, Btittle: 'Saffron Swords', price: 1120 },
+  { book_id: 108, Btittle: 'Mind Map', price: 1500 },
+  { book_id: 109, Btittle: 'Pyree', price: 2000 },
+  { book_id: 110, Btittle: 'Women And Men', price: 6000 }
+]
+Books> db.Book.find({},{_id:0,book_id:0,Btittle:1,authors:1,price:1});
+MongoServerError: Cannot do inclusion on field Btittle in exclusion projection
+Books> db.Book.find({},{_id:0,Btittle:1,authors:1,price:1});
+[
+  { Btittle: 'The White Book', price: 1500 },
+  { Btittle: 'Han Kang', price: 1500 },
+  { Btittle: 'The Hindu', price: 1400 },
+  { Btittle: 'Darkness', price: 1200 },
+  { Btittle: 'Making of India', price: 1100 },
+  { Btittle: 'We are Displaced', price: 1120 },
+  { Btittle: 'Saffron Swords', price: 1120 },
+  { Btittle: 'Mind Map', price: 1500 },
+  { Btittle: 'Pyree', price: 2000 },
+  { Btittle: 'Women And Men', price: 6000 }
+]
+Books> db.Book.find({},{_id:0,Btittle:1,authors:1,price:1}).limit(3).sort({author:1});
+[
+  { Btittle: 'Darkness', price: 1200 },
+  { Btittle: 'Making of India', price: 1100 },
+  { Btittle: 'We are Displaced', price: 1120 }
+]
+Books> db.Book.find({authors:{$eq:"Bob"}},{_id:0,Btittle:1,authors:1,price:1}).limit(3).sort({author:1});
+
+Books> db.Book.find({authors:{$eq:"Bob"}},{_id:0,Btittle:1,authors:1,price:1}).limit(3).sort({author:1});
+
+Books> db.Book.find({authors:{$eq:"Alen"}},{_id:0,Btittle:1,authors:1,price:1}).limit(3).sort({author:1});
+
+Books> db.Book.find({authors:{$eq:"Jack"}},{_id:0,Btittle:1,authors:1,price:1}).limit(3).sort({author:1});
+
+Books> db.Book.find({author:{$eq:"Jack"}},{_id:0,Btittle:1,author:1,price:1}).limit(3).sort({author:1});
+[
+  { Btittle: 'The White Book', author: [ 'Jack' ], price: 1500 },
+  { Btittle: 'Han Kang', author: [ 'Jack' ], price: 1500 },
+  { Btittle: 'The Hindu', author: [ 'Jack' ], price: 1400 }
+]
+Books> db.Book.find({price:{$gt:1500}},{_id:0})
+[
+  {
+    book_id: 109,
+    Btittle: 'Pyree',
+    author: [ 'Mathwes' ],
+    price: 2000
+  },
+  {
+    book_id: 110,
+    Btittle: 'Women And Men',
+    author: [ 'James' ],
+    price: 6000
+  }
+]
+Books> db.Book.find({price:{$gt:800,$lt:2000}},{_id:0,Btittle:1,author:1,price:1})
+[
+  { Btittle: 'The White Book', author: [ 'Jack' ], price: 1500 },
+  { Btittle: 'Han Kang', author: [ 'Jack' ], price: 1500 },
+  { Btittle: 'The Hindu', author: [ 'Jack' ], price: 1400 },
+  { Btittle: 'Darkness', author: [ 'Alen' ], price: 1200 },
+  { Btittle: 'Making of India', author: [ 'Alen' ], price: 1100 },
+  { Btittle: 'We are Displaced', author: [ 'Bob' ], price: 1120 },
+  { Btittle: 'Saffron Swords', author: [ 'Bob' ], price: 1120 },
+  { Btittle: 'Mind Map', author: [ 'George' ], price: 1500 }
+]
+Books> db.Book.find({},{_id:0}).sort({Btittle:1})
+[
+  {
+    book_id: 104,
+    Btittle: 'Darkness',
+    author: [ 'Alen' ],
+    price: 1200
+  },
+  {
+    book_id: 102,
+    Btittle: 'Han Kang',
+    author: [ 'Jack' ],
+    price: 1500
+  },
+  {
+    book_id: 105,
+    Btittle: 'Making of India',
+    author: [ 'Alen' ],
+    price: 1100
+  },
+  {
+    book_id: 108,
+    Btittle: 'Mind Map',
+    author: [ 'George' ],
+    price: 1500
+  },
+  {
+    book_id: 109,
+    Btittle: 'Pyree',
+    author: [ 'Mathwes' ],
+    price: 2000
+  },
+  {
+    book_id: 107,
+    Btittle: 'Saffron Swords',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    book_id: 103,
+    Btittle: 'The Hindu',
+    author: [ 'Jack' ],
+    price: 1400
+  },
+  {
+    book_id: 101,
+    Btittle: 'The White Book',
+    author: [ 'Jack' ],
+    price: 1500
+  },
+  {
+    book_id: 106,
+    Btittle: 'We are Displaced',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    book_id: 110,
+    Btittle: 'Women And Men',
+    author: [ 'James' ],
+    price: 6000
+  }
+]
+Books> db.Book.find({author:"Bob"})
+[
+  {
+    _id: ObjectId('656428b6d370c62bce67bc3f'),
+    book_id: 106,
+    Btittle: 'We are Displaced',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    _id: ObjectId('656428d2d370c62bce67bc40'),
+    book_id: 107,
+    Btittle: 'Saffron Swords',
+    author: [ 'Bob' ],
+    price: 1120
+  }
+]
+Books> db.Book.updateMany({Btittle:"Women And Men"},{$inc:{price:500}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Books> db.Book.find();
+[
+  {
+    _id: ObjectId('65642788d370c62bce67bc3a'),
+    book_id: 101,
+    Btittle: 'The White Book',
+    author: [ 'Jack' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('656427dcd370c62bce67bc3b'),
+    book_id: 102,
+    Btittle: 'Han Kang',
+    author: [ 'Jack' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('6564282ad370c62bce67bc3c'),
+    book_id: 103,
+    Btittle: 'The Hindu',
+    author: [ 'Jack' ],
+    price: 1400
+  },
+  {
+    _id: ObjectId('6564285bd370c62bce67bc3d'),
+    book_id: 104,
+    Btittle: 'Darkness',
+    author: [ 'Alen' ],
+    price: 1200
+  },
+  {
+    _id: ObjectId('6564287cd370c62bce67bc3e'),
+    book_id: 105,
+    Btittle: 'Making of India',
+    author: [ 'Alen' ],
+    price: 1100
+  },
+  {
+    _id: ObjectId('656428b6d370c62bce67bc3f'),
+    book_id: 106,
+    Btittle: 'We are Displaced',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    _id: ObjectId('656428d2d370c62bce67bc40'),
+    book_id: 107,
+    Btittle: 'Saffron Swords',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    _id: ObjectId('6564293fd370c62bce67bc41'),
+    book_id: 108,
+    Btittle: 'Mind Map',
+    author: [ 'George' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('65642964d370c62bce67bc42'),
+    book_id: 109,
+    Btittle: 'Pyree',
+    author: [ 'Mathwes' ],
+    price: 2000
+  },
+  {
+    _id: ObjectId('65642995d370c62bce67bc43'),
+    book_id: 110,
+    Btittle: 'Women And Men',
+    author: [ 'James' ],
+    price: 6500
+  }
+]
+Books> db.Book.update({Btittle:"Mind Map"},{$set:{price:4500},$push:{author:"Ashif"},$pull:{author:"George"},$setOnInsert:{book_id:108}},{upsert:true});
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+MongoServerError: Updating the path 'author' would create a conflict at 'author'
+Books> db.Book.insert({book_id:111,Btittle:"The Earth",author:['Ashif','Jamee'],price:7000})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('656438c3d370c62bce67bc44') }
+}
+Books> db.Book.update({Btittle:"The Earth"},{$set:{price:4500},$push:{author:"Ashif"},$pull:{author:"George"},$setOnInsert:{book_id:108}},{upsert:true});
+MongoServerError: Updating the path 'author' would create a conflict at 'author'
+Books> db.Book.update({Btittle:"The Earth"},{$set:{price:4500}},{$push:{author:"Ashif"}},{$pull:{author:"George"}},{$setOnInsert:{book_id:108}},{upsert:true});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Books> db.Book.find()
+[
+  {
+    _id: ObjectId('65642788d370c62bce67bc3a'),
+    book_id: 101,
+    Btittle: 'The White Book',
+    author: [ 'Jack' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('656427dcd370c62bce67bc3b'),
+    book_id: 102,
+    Btittle: 'Han Kang',
+    author: [ 'Jack' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('6564282ad370c62bce67bc3c'),
+    book_id: 103,
+    Btittle: 'The Hindu',
+    author: [ 'Jack' ],
+    price: 1400
+  },
+  {
+    _id: ObjectId('6564285bd370c62bce67bc3d'),
+    book_id: 104,
+    Btittle: 'Darkness',
+    author: [ 'Alen' ],
+    price: 1200
+  },
+  {
+    _id: ObjectId('6564287cd370c62bce67bc3e'),
+    book_id: 105,
+    Btittle: 'Making of India',
+    author: [ 'Alen' ],
+    price: 1100
+  },
+  {
+    _id: ObjectId('656428b6d370c62bce67bc3f'),
+    book_id: 106,
+    Btittle: 'We are Displaced',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    _id: ObjectId('656428d2d370c62bce67bc40'),
+    book_id: 107,
+    Btittle: 'Saffron Swords',
+    author: [ 'Bob' ],
+    price: 1120
+  },
+  {
+    _id: ObjectId('6564293fd370c62bce67bc41'),
+    book_id: 108,
+    Btittle: 'Mind Map',
+    author: [ 'George' ],
+    price: 1500
+  },
+  {
+    _id: ObjectId('65642964d370c62bce67bc42'),
+    book_id: 109,
+    Btittle: 'Pyree',
+    author: [ 'Mathwes' ],
+    price: 2000
+  },
+  {
+    _id: ObjectId('65642995d370c62bce67bc43'),
+    book_id: 110,
+    Btittle: 'Women And Men',
+    author: [ 'James' ],
+    price: 6500
+  },
+  {
+    _id: ObjectId('656438c3d370c62bce67bc44'),
+    book_id: 111,
+    Btittle: 'The Earth',
+    author: [ 'Ashif', 'Jamee' ],
+    price: 4500
+  }
+]
+Books>
